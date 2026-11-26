@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software | CoSAIL, IIT Hyderabad</title>
+  <meta name="description" content="Open-source research software from CoSAIL and Dr. Ankit Gupta: SpectralKoopman, DeepCME, Padé PSD, maxRPA, stochastic filtering codes and more, each accompanying a published paper.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Co<span>SAIL</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#people">People</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="software.html" aria-current="page">Software</a></li>
+        <li><a href="index.html#opportunities">Join</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="eyebrow">CoSAIL &middot; IIT Hyderabad</div>
+      <h1>Software</h1>
+      <p>Open-source code accompanying the research of CoSAIL and its principal investigator. Most of these packages
+        were developed at ETH Zurich before the lab was founded; CoSAIL&rsquo;s own releases will be added here. Each
+        package implements the method of a specific paper, together with the examples needed to reproduce its results.
+        If you use one in your work, please cite the paper it accompanies.</p>
+    </div>
+  </div>
+
+  <section class="tight">
+    <div class="wrap">
+      <h2>Research software</h2>
+      <p class="sub">Packages developed by Ankit Gupta at the Department of Biosystems Science and Engineering, ETH Zurich (2012&ndash;2026).
+        All are hosted on <a href="https://github.com/ankitgupta83" target="_blank" rel="noopener">GitHub</a>.</p>
+
+      <div class="grid two sw">
+
+        <article class="card">
+          <span class="tag">Python &middot; C++ / CUDA</span>
+          <h3><a href="https://github.com/ankitgupta83/SpectralKoopman" target="_blank" rel="noopener">SpectralKoopman</a></h3>
+          <p>Implementation of the <strong>Spectral Koopman Approximation (SKA)</strong> method for stochastic reaction networks.
+            Estimates decay modes, iterated resolvents and Koopman-operator coefficients, and uses them to compute trajectories,
+            parameter sensitivities and cross-spectral densities, with validation against stochastic simulation. Simulation
+            kernels are generated and compiled at runtime; an NVIDIA GPU is optional but accelerates them substantially.</p>
+          <p class="paper">Accompanies: Gupta &amp; Khammash, <a href="https://doi.org/10.1038/s41467-026-79229-7" target="_blank" rel="noopener">A spectral framework for revealing the hidden low-dimensional structure in stochastic reaction networks</a>, <em>Nature Communications</em>, 2026.</p>
+          <div class="sw-links">
+            <a href="https://github.com/ankitgupta83/SpectralKoopman" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.22831466" target="_blank" rel="noopener">Zenodo</a>
+            <a href="https://arxiv.org/abs/2511.23114" target="_blank" rel="noopener">arXiv</a>
+            <span class="pub-note">GPL-3.0</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Python &middot; TensorFlow</span>
+          <h3><a href="https://github.com/ankitgupta83/DeepCME" target="_blank" rel="noopener">DeepCME</a></h3>
+          <p>A deep learning framework for the <strong>chemical master equation</strong>. Trains a feedforward neural network
+            to estimate solution statistics of the CME together with their parameter sensitivities, and validates the
+            estimates against Monte Carlo simulation and the Bernoulli path algorithm.</p>
+          <p class="paper">Accompanies: Gupta, Schwab &amp; Khammash, <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009623" target="_blank" rel="noopener">DeepCME: A deep learning framework for computing solution statistics of the chemical master equation</a>, <em>PLOS Computational Biology</em>, 2021.</p>
+          <div class="sw-links">
+            <a href="https://github.com/ankitgupta83/DeepCME" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Python</span>
+          <h3><a href="https://github.com/ankitgupta83/PadePSD_python" target="_blank" rel="noopener">Padé PSD</a></h3>
+          <p>Monte Carlo estimation of the <strong>power spectral density</strong> of stochastic reaction networks from an
+            augmented continuous-time Markov chain, using Padé approximants. Compares the estimate with the DFT of sampled
+            trajectories and, where available, the exact spectrum. Examples are configured through a JSON file.</p>
+          <p class="paper">Accompanies: Gupta &amp; Khammash, <a href="https://www.nature.com/articles/s41467-022-31263-x" target="_blank" rel="noopener">Frequency spectra and the color of cellular noise</a>, <em>Nature Communications</em>, 2022.
+            See also <a href="https://www.biorxiv.org/content/10.1101/2022.03.31.486511v1" target="_blank" rel="noopener">Padé SSA</a> (IEEE CDC 2022).</p>
+          <div class="sw-links">
+            <a href="https://github.com/ankitgupta83/PadePSD_python" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Python</span>
+          <h3><a href="https://github.com/ankitgupta83/maxRPA" target="_blank" rel="noopener">maxRPA</a></h3>
+          <p>Scans candidate controller designs for a given controlled biomolecular network and ranks those achieving
+            <strong>maximal robust perfect adaptation</strong>, in the deterministic homothetic, deterministic antithetic
+            and stochastic antithetic categories, with visualisation and perturbation analysis of the top designs.</p>
+          <p class="paper">Accompanies: Gupta &amp; Khammash, <a href="https://www.pnas.org/doi/10.1073/pnas.2207802119" target="_blank" rel="noopener">Universal structural requirements for maximal robust perfect adaptation in biomolecular networks</a>, <em>PNAS</em>, 2022.
+            See also <a href="https://ieeexplore.ieee.org/document/11363095" target="_blank" rel="noopener">An Internal Model Principle for Biochemical Networks</a> (IEEE CSM 2026).</p>
+          <div class="sw-links">
+            <a href="https://github.com/ankitgupta83/maxRPA" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">C++</span>
+          <h3><a href="https://github.com/ankitgupta83/tree-and-occurrences" target="_blank" rel="noopener">tree-and-occurrences</a></h3>
+          <p>Computes the <strong>probability distribution of a reconstructed phylogenetic tree</strong> jointly with occurrence
+            data (sampled individuals without sequences), under birth&ndash;death sampling models used in phylodynamics.</p>
+          <p class="paper">Accompanies: Gupta, Manceau, Vaughan, Khammash &amp; Stadler, <a href="https://www.sciencedirect.com/science/article/pii/S0022519319304849" target="_blank" rel="noopener">The probability distribution of the reconstructed phylogenetic tree with occurrence data</a>, <em>Journal of Theoretical Biology</em>, 2020.</p>
+          <div class="sw-links">
+            <a href="https://github.com/ankitgupta83/tree-and-occurrences" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Developed with collaborators</h2>
+      <p class="sub">Code for joint work from the Control Theory and Systems Biology (CTSB) laboratory at ETH Zurich, maintained
+        by its first authors. The stochastic filtering packages are also summarised on the
+        <a href="https://zhoufang92.github.io/FilteringAlgorithmCTSB.github.io/" target="_blank" rel="noopener">CTSB filtering algorithms page</a>.</p>
+
+      <div class="grid two sw">
+
+        <article class="card">
+          <span class="tag">MATLAB</span>
+          <h3><a href="https://github.com/EleSofi/FFSP_project" target="_blank" rel="noopener">FFSP</a></h3>
+          <div class="by">Elena D&rsquo;Ambrosio</div>
+          <p>The <strong>filtered finite state projection</strong> method: a finite-dimensional filter for stochastic reaction
+            networks with continuous-time, noise-free observations, obtained by truncating the infinite system of filtering
+            equations with computable error bounds.</p>
+          <p class="paper">Accompanies: D&rsquo;Ambrosio, Fang, Gupta, Kumar &amp; Khammash, <a href="https://epubs.siam.org/doi/full/10.1137/24M1707614" target="_blank" rel="noopener">Filtered finite state projection method for the analysis and estimation of stochastic biochemical reaction networks</a>, <em>SIAM Journal on Applied Dynamical Systems</em>, 2026.</p>
+          <div class="sw-links">
+            <a href="https://github.com/EleSofi/FFSP_project" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">MATLAB &middot; Jupyter</span>
+          <h3><a href="https://github.com/ZhouFang92/Rao-Blackwell-method-for-cell-specific-model-identification" target="_blank" rel="noopener">Rao-Blackwellized CME solver &amp; model identification</a></h3>
+          <div class="by">Zhou Fang</div>
+          <p>A <strong>divide-and-conquer</strong> approach that splits a high-dimensional network into a leader system and
+            conditionally independent follower subsystems, combining Monte Carlo estimation with stochastic filtering to
+            solve the CME and to identify cell-specific models from single-cell data.</p>
+          <p class="paper">Accompanies: Fang, Gupta, Kumar &amp; Khammash, <a href="https://doi.org/10.1038/s41467-024-49177-1" target="_blank" rel="noopener">Advanced methods for gene network identification and noise decomposition from single-cell data</a>, <em>Nature Communications</em>, 2024.</p>
+          <div class="sw-links">
+            <a href="https://github.com/ZhouFang92/Rao-Blackwell-method-for-cell-specific-model-identification" target="_blank" rel="noopener">Model identification</a>
+            <a href="https://github.com/ZhouFang92/Rao-Blackwellized-CME-solver" target="_blank" rel="noopener">CME solver</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">MATLAB</span>
+          <h3><a href="https://github.com/ZhouFang92/Regularized-particle-filter-for-stochastic-reaction-networks" target="_blank" rel="noopener">Regularized particle filters</a></h3>
+          <div class="by">Zhou Fang</div>
+          <p>Particle filters that add artificial noise to particles to mitigate sample degeneracy, with examples on
+            three stochastic reaction networks of different sizes and the conditions under which the filter converges
+            to the exact one.</p>
+          <p class="paper">Accompanies: Fang, Gupta &amp; Khammash, <a href="https://epubs.siam.org/doi/10.1137/21M1453025" target="_blank" rel="noopener">Convergence of regularized particle filters for stochastic reaction networks</a>, <em>SIAM Journal on Numerical Analysis</em>, 2023.</p>
+          <div class="sw-links">
+            <a href="https://github.com/ZhouFang92/Regularized-particle-filter-for-stochastic-reaction-networks" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">MATLAB</span>
+          <h3><a href="https://github.com/ZhouFang92/Particle-filters-for-multi-scale-CRNs-v.1" target="_blank" rel="noopener">Particle filters for multiscale networks</a></h3>
+          <div class="by">Zhou Fang</div>
+          <p>Bootstrap particle filters applied to a reduced <strong>hybrid model</strong> built from the time-scale separations
+            of a multiscale reaction network, which greatly lowers the computational cost of state estimation.</p>
+          <p class="paper">Accompanies: Fang, Gupta &amp; Khammash, <a href="https://www.sciencedirect.com/science/article/pii/S0021999122005034" target="_blank" rel="noopener">Stochastic filtering for multiscale stochastic reaction networks based on hybrid approximations</a>, <em>Journal of Computational Physics</em>, 2022.</p>
+          <div class="sw-links">
+            <a href="https://github.com/ZhouFang92/Particle-filters-for-multi-scale-CRNs-v.1" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Python</span>
+          <h3><a href="https://github.com/quentin-badolle/DoubleBPA" target="_blank" rel="noopener">DoubleBPA</a></h3>
+          <div class="by">Quentin Badolle</div>
+          <p>Unbiased Monte Carlo estimation of <strong>second-order parameter sensitivities</strong> for stochastic reaction
+            networks, extending the Bernoulli path algorithm to second derivatives of expectations with respect to
+            model parameters.</p>
+          <p class="paper">Accompanies: Badolle, Gupta &amp; Khammash, <a href="https://epubs.siam.org/doi/10.1137/24M1710097" target="_blank" rel="noopener">Unbiased estimation of second-order parameter sensitivities for stochastic reaction networks</a>, <em>SIAM Journal on Scientific Computing</em>, 2026.</p>
+          <div class="sw-links">
+            <a href="https://github.com/quentin-badolle/DoubleBPA" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="core">
+        <span class="tag">IN DEVELOPMENT</span>
+        <h3>CoSAIL-Markov</h3>
+        <p>A GPU-accelerated computational framework for learning and analysing stochastic Markov dynamics, which will bring
+          together and extend the methods above: massively parallel simulation, learning of probability evolution and
+          stochastic Koopman operators, low-dimensional spectral learning, and controlled dynamics with external inputs and
+          feedback. It will be released on this page under an open-source licence.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h2>Using the code</h2>
+          <p>All packages are free to use for research and teaching. Each repository contains the examples from its paper,
+            so results can be reproduced and the methods adapted to new models. Issues and pull requests are welcome on GitHub.</p>
+          <p>Code links also appear next to the corresponding entries on the <a href="publications.html">publications page</a>.</p>
+        </div>
+        <aside class="callout">
+          <h3>Questions or collaboration?</h3>
+          <p>For help with a package, or to discuss applying these methods to your own system, write to
+            <a href="mailto:ankit.gupta@ai.iith.ac.in">ankit.gupta@ai.iith.ac.in</a>.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap foot">
+    <div>
+      <strong>CoSAIL</strong><br>
+      Computational Science &amp; Artificial Intelligence Laboratory<br>
+      Department of Artificial Intelligence<br>
+      Indian Institute of Technology Hyderabad<br>
+      Kandi, Sangareddy, Telangana 502284, India
+    </div>
+    <div>
+      <strong>Contact</strong><br>
+      <a href="mailto:ankit.gupta@ai.iith.ac.in">ankit.gupta@ai.iith.ac.in</a><br><br>
+      <a href="https://www.iith.ac.in/">IIT Hyderabad</a> &middot;
+      <a href="https://ai.iith.ac.in/">Dept. of AI</a>
+    </div>
+  </div>
+  <div class="wrap copy">&copy; 2026 CoSAIL, IIT Hyderabad</div>
+</footer>
+
+</body>
+</html>

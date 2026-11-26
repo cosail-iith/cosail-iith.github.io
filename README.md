@@ -50,7 +50,30 @@ The website will progressively include:
 - Research opportunities and collaboration information
 - News and announcements
 
-The site is hosted with **GitHub Pages**.
+The site is hosted with **GitHub Pages** at <https://cosail-iith.github.io>.
+
+### Site structure
+
+```
+index.html                    Lab homepage (about, research, people, news, opportunities)
+ankit-gupta.html              PI profile
+publications.html             Searchable publication list
+software.html                 Open-source software, each package linked to its paper
+assets/CV_AnkitGupta.pdf      PI's CV, linked from ankit-gupta.html (rebuild from the .tex source and replace when updated)
+assets/css/style.css          Shared styles
+assets/js/publications-data.js  Publication data (edit this to add papers)
+assets/js/publications.js     Renders the publication lists
+assets/img/                   Images
+.nojekyll                     Serve files as-is, without a Jekyll build
+```
+
+### Adding a publication
+
+Open `assets/js/publications-data.js`, copy an existing entry, edit its fields and keep the list newest-first. Set `"selected": true` to also show it under *Selected publications* on the PI page. Add a `"links"` entry (e.g. `{"label": "Code", "url": ...}`) for accompanying code. Both pages update automatically.
+
+### Adding software
+
+Open `software.html` and copy an existing `<article class="card">` block: name, one-paragraph description, the paper it accompanies, and GitHub/Zenodo links.
 
 ## Collaboration and Opportunities
 
